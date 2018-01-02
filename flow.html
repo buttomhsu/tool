@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>上稿步驟說明</title>
+		<style>
+			body,html{
+				margin: 0;
+				padding: 0;
+			}
+			.flow-txt{
+				
+			}
+			.flow-block h3{
+				cursor: pointer;
+				color: purple;
+			}
+			h1,h2,h3,h4,h5,h6{
+				margin: 0px;
+				padding: 0px;
+			}
+			h1{
+					font-size: 22px;
+			}
+			h2{
+				font-size: 20px;
+			}
+			h3{
+				font-size: 18px;
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript">
+		// 收缩展开效果
+		$(document).ready(function(){
+		$("div.txt").hide();//默认隐藏div，或者在样式表中添加.text{display:none}，推荐使用后者
+		$(".flow-block h3").click(function(){
+			$(this).next(".txt").slideToggle("slow");
+		})
+		});
+		</script>
+	</head>
+	<body>
+		<div class="flow-txt">
+			<h1>各頁面產出流程</h1>
+			<div class="flow-block">
+				<h2>提案比較頁 / 提案連署統計頁產出流程</h2>
+				<ol>
+					<li>
+						<h3>設定小議題</h3>
+						<div class="txt">
+							<ol>
+								<li>如果還沒建立，要先<a href="https://console.watchout.tw/topical_data/specific_topics/create" target="main">建立新的小議題</a>，並新增「修法方向」。</li>
+								<li>如果已經建立，要先從<a href="https://console.watchout.tw/topical_data/specific_topics" target="main">小議題管理</a>選擇小議題點選編輯，設定「修法方向」</li>
+							</ol>
+						</div>
+					</li>
+					<li>
+						<h3>設定法案</h3>
+						<div class="txt">
+							<ol>
+								<li>如果還沒建立，要先<a href="https://console.watchout.tw/topical_data/acts/create" target="main">建立新的法案</a>，設定法律名稱跟關聯小議題</li>
+								<li>若要編輯已經有的法案名稱，從<a href="https://console.watchout.tw/topical_data/acts" target="main">法案管理</a>選擇法案後點選編輯</li>
+								<li>如果已經建立，此步驟就跳過</li>
+							</ol>
+						</div>
+					</li>
+					<li>
+						<h3>設定法案比較</h3>
+						<div class="txt">
+							<ol>
+								<li>如果還沒建立，要先<a href="https://console.watchout.tw/topical_data/act_features/create" target="main">新增法案比較</a>，同一組修法方向會有多個法案比較，要一次把該修法方向的法案比較先都輸入完畢。</li>
+								<li>若要編輯已經有的法案比較，從<a href="https://console.watchout.tw/topical_data/act_features" target="main">法案比較管理</a>選擇後按編輯</li>
+							</ol>
+							<p>這裡的文字是設定前台提案比較頁，例如<a href="  https://lab.watchout.tw/data-reports/1" target="content">罷免法提案比較</a>，第一個圖表「提案成份比較」，上面tab，跟tab下面那段文字，對應欄位如下</p>
+							<ul>
+								<li>可否宣傳->法案比較</li>
+								<li>罷免可宣傳->法案比較價值判斷</li>
+								<li>罷免是否可宣傳->法案比較內容說明</li>
+							</ul>
+							<p>法案比較量尺就是圖表的分數與文字，對應欄位如下</p>
+							<ul>
+								<li>不得宣傳/可宣傳/可宣傳並開公聽會->分數描述</li>
+								<li>bar上數字->分數</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<h3>設定提案連署</h3>
+						<div class="txt">
+							<ol>
+								<li>把整理好的提案（例如<a href="https://docs.google.com/spreadsheets/d/1KVzLX2MJisnVTqm1eKP74-WWgpyMZHAqLLFPBUzedqI/edit#gid=0" target="content">罷免第九屆提案</a>）逐筆用<a href="https://console.watchout.tw/rep_speech/rs_bills/create" target="main">新增提案連署</a>輸入進去</li>
+								<li>若要編輯提案連署，進入<a href="https://console.watchout.tw/rep_speech/rs_bills" target="main">提案管理</a>，選擇後按編輯</li>
+							</ol>
+							<p>因為現在沒辦法額外設定前台排序，所以新增提案的時候，到時候希望誰前誰後，就要照順序新增進去。理想是修法前後都放上面會比較好。法律的部分手動再名字寫「修法前」「修法後」「現行法」後面加上公告日期。  目前審議進度可以先不新增（前台沒有顯示的地方），但基本資料 / 提案 / 法案比較 這三塊都要輸入。
+							</p>
+						</div>
+					</li>
+					<li>
+						<h3>設定提案資料集</h3>
+						<div class="txt">
+							<ol>
+								<li>用<a href="https://console.watchout.tw/lab/lab_bill_data_sets/create" target="main">新增提案資料集</a>設定要組成分析頁面所要撈取的提案 / 修法方向 / 法案比較。並且針對提案評分</li>
+								<li>若要編輯已經存在的提案資料集，進入<a href="https://console.watchout.tw/lab/lab_bill_data_sets" target="main">提案資料集管理</a>，選擇後按編輯</li>
+							</ol>
+							<p>這裡的提案評分，是在分析頁例如<a href="https://lab.watchout.tw/data-reports/1"  target="content">罷免提案分析比較</a>中構成「提案成份比較」跟「提案戰力分析」的分數來源。</p>
+						</div>
+					</li>
+					<li>
+						<h3>設定圖表(要選資料集)</h3>
+						<div class="txt">
+							<ol>
+								<li>用<a href="https://console.watchout.tw/comp/figures/create" target="main">新增圖表</a>把分析頁要用的圖表先一塊一塊新增出來，圖表文案也是在此設定。因為圖表是一塊一塊模組化，所以要先把一塊一塊圖表，選好資料集後個別新增出來。但一開始可以先輸入容易辨識的數字，因為看不到圖表寫不出文案XD，事後分析頁組完才回來修改文案內容。</li>
+								<li>若要編輯已存在的圖表，進入<a href="https://console.watchout.tw/comp/figures" target="main">圖表管理</a>，選擇後按編輯。</li>
+							</ol>
+						</div>
+					</li>
+					<li>
+						<h3>設定分析報告（要選資料集與圖表）</h3>
+						<div class="txt">
+							<ol>
+								<li>用<a href="https://console.watchout.tw/lab/lab_data_reports/create" target="main">新增數據分析報告</a>把剛設定的圖表拉進分析頁並且設定排序。因為若還沒放到議題縱覽就算已發布也看不到，所以可以直接設定為已發布。儲存後取得id，那報告頁的網址就是 https://lab.watchout.tw/data-reports/id，可以直接連過去預覽。</li>
+								<li>若要編輯已存在分析報告的圖表順序，進入<a href="https://console.watchout.tw/lab/lab_data_reports" target="main">數據分析報告管理</a>，選擇後按編輯。</li>
+							</ol>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="flow-block">
+				<h2></h2>
+			</div>
+			<div class="flow-block">
+				<h2></h2>
+			</div>
+			<div class="flow-block">
+				<h2></h2>
+			</div>
+		</div>
+	</body>
+</html>
